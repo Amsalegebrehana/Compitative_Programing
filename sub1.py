@@ -6,11 +6,11 @@ len2 = len(num2)
 b = 0
 if len1 >= len2:
     h = len1 - len2
-    num2 = h * '0' + num2
+    num2 = h * '0' + num2 # add infront of a number to make it equal length as the other one
     len2 = len(num2)
 elif len2 > len1:
     h = len2 - len1
-    num1 = h * '0' + num1
+    num1 = h * '0' + num1 # add infront of a number to make it equal length
     len1 = len(num1)
 if int(num1) >= int(num2):
     for i in range(len1-1, -1,-1):
@@ -25,7 +25,7 @@ if int(num1) >= int(num2):
             b = 0
     print(result[::-1])
 elif int(num1) < int(num2):
-        
+     #  swap here is just not rewrite again
     print(num1)
     temp = num1
     num1 = num2
