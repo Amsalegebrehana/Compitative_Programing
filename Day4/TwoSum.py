@@ -12,10 +12,10 @@ def twoSum():
     
     #time complexity of O(n2)
 
-    # for i in range(len(nums)):
-    #             for j in range(len(nums)):
+    for i in range(len(nums)):
+                for j in range(len(nums)):
                         
-    #                     if nums[i] + nums[j] == target and i != j:
-    #                         return i,j
+                        if nums[i] + nums[j] == target and i != j:
+                            return i,j
 
 print(twoSum())
