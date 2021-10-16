@@ -1,8 +1,7 @@
 #hacker rank sales by match solution 
 def salesByMatch(n, ar):
     numPairs = 0
-    paired = False
-    arSet = set([])
+  
     l=[]
    
     for i in range(n):
