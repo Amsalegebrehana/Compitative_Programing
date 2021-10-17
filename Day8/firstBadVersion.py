@@ -10,7 +10,7 @@
         badStart = False
         while left <= right:
             mid = (left + right)//2
-            if isBadVersion(mid) == True and isBadVersion(mid- 1) == True:
+            if isBadVersion(mid) == True and isBadVersion(mid- 1) == True: #isBadVersion is an api for this question 
                 right = mid - 1
             if isBadVersion(mid) == True and isBadVersion(mid- 1) == False:
                 return mid
