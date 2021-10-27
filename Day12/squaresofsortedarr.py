@@ -1,4 +1,5 @@
 #leetcode squares of sorted array 977
+#insertion sort
 
 def sortsqr(nums):
     n = []
