@@ -8,8 +8,7 @@ class Words:
         l=[]
         for i in range(len(self.s)-1,-1,-1):
             h += self.s[i]
-            # print(self.s[i], end='')
-        # print(h.split())
+           
         l=h.split()
         for i in range(len(l)-1,-1,-1):
             k+=l[i] + ' '
