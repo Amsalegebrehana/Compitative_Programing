@@ -5,7 +5,11 @@ class Median:
         self.arr = arr
     def sort(self):
         for i in range(len(self.arr)):
+            
+            
             for j in range(i,len(self.arr)):
+               
+                print(i,j)
                 if self.arr[i] > self.arr[j]:
                     self.arr[i], self.arr[j] = self.arr[j], self.arr[i]
         return self.arr
