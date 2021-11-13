@@ -72,6 +72,24 @@ class LinkedList:
             while temp.next is not None:
                 temp = temp.next 
             temp.next = newdata
+    def removeNode(self, n):
+        length = 0
+        t= self.head
+        n = 0
+        while t is not None:
+            length +=1
+            t=t.next 
+        remove_data = self.head 
+        num = length - n 
+        while length > 0:
+            if length == num:
+                remove_data.next = remove_data.next.next 
+            else:
+                remove_data = remove_data.next
+        print("######")
+        print("length in remove ", length)
+        print("######")
+        
     def delete_at_end(self):
         if self.head is None:
             print("Linked list is empty")
@@ -87,7 +105,9 @@ class LinkedList:
          if self.head is None:
             print("Linked list is empty")
          else:
-            self.head = self.head.next
+            self.head = self.head.next 
+   
+            
     def print_ll(self):
         count = 0
         if self.head is None:
@@ -105,8 +125,10 @@ l.add_end(4)
 l.add_end(5)
 l.add_begining(6)
 l.add_middle(3)
-l.delete_at_end()
-l.delete_begining()
+l.removeNode(0)
+
+# l.delete_at_end()
+# l.delete_begining()
 
 
 l.print_ll()
