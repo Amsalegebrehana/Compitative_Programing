@@ -15,7 +15,7 @@ def difference(s,t):
         if i in lt:
             lt.remove(i)
             l.remove(i)
-        else:
+        # else:
     
     
 print(difference("aa","a"))

@@ -8,6 +8,7 @@ def palindrome(s):
     x= str.isalnum
     print(x)
     for i in range(len(h)-1,-1,-1):
+        
         s2 += h[i]
     print(s2)
     print(h)
