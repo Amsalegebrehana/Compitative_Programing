@@ -3,6 +3,7 @@
 def countingSort(arr):
    
     l=[]
+    # l2=[]
     for i in range(6):
         l.append(0)
     print(l)
@@ -15,6 +16,6 @@ def countingSort(arr):
             
                 print(i)
     
-        
+    # print(l2)   
     return l 
-print(countingSort([1,2,2,3,4]))
+print(countingSort([1,4,2,2,3]))
