@@ -4,8 +4,8 @@ from typing import List
 def largestNum(nums):
   
     s = ''
-    for i in range( len(nums)-1):
-        for j in range(i+1,len(nums)):
+    for i in range(0, len(nums)):
+        for j in range(len(nums)):
             if  str(nums[i])+str(nums[j]) < str(nums[j])+str(nums[i]):
             
                 nums[i], nums[j] =nums[j], nums[i]
