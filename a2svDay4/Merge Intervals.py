@@ -14,8 +14,8 @@ def mergeIntervals(intervals ):
             else:
                 k= intervals[i][1]
             x = [intervals[i][0],k ]
-            intervals.pop(i+1)
-            intervals.pop(i)
+            intervals.remove(intervals[i+1])
+            intervals.remove(intervals[i])
             intervals.insert(i,x)
         else:
 
