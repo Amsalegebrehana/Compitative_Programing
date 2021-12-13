@@ -1,9 +1,20 @@
 
-
+from itertools import permutations
+from typing import List
 def largestNum(nums):
-    l = []
-    for i in nums:
-        s = ''.join(nums)
-        # l.append(s)
+  
+    s = ''
+    for i in range( len(nums)-1):
+        for j in range(i+1,len(nums)):
+            if  str(nums[i])+str(nums[j]) < str(nums[j])+str(nums[i]):
+            
+                nums[i], nums[j] =nums[j], nums[i]
+    # print(nums)
+    for i in range(0, len(nums)):
+        
+        s += str(nums[i])
+    s = str(int(s))
+    # print(nums)
     return s
-print(largestNum([10,2]))
+
+print(largestNum([0,0]))
