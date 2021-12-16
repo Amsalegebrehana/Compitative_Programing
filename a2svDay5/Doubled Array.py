@@ -3,15 +3,32 @@
 #leetcode Doubled Array solution
 
 def doubledArray(changed):
-    l2=[]
-    changed.sort()
-    x = len(changed)//2
-    s = changed[:x]
-    print(s)
-    print(changed)
-    for i in range(0, len(changed)):
-        if changed[i] % 2 == 0:
-            l2.append(changed[i])
-            # changed.remove(i)
-    return l2 
-print(doubledArray([1,3,4,2,6,8]))
+    Dict={}
+    l=[]
+    changed[:]=sorted(changed)
+
+    for i in range(0,len(changed)):
+        if changed[i]  not in Dict:
+            Dict[changed[i]] = 1
+        else:
+                Dict[changed[i]] += 1
+    if len(changed)%2!=0 or len(changed)==1:
+        return []
+
+    for i in range(0,len(changed)):
+        # l=[Dict[changed[i]]]
+    
+        if Dict[changed[i]] !=0:
+            if changed[i]*2 in Dict:
+                if Dict[changed[i]*2] != 0:
+                    l.append(changed[i])
+                    Dict[changed[i]] -=1
+                    Dict[changed[i]*2] -=1
+                else:
+                    return []
+
+            else:
+                    return []
+
+    return l
+print(doubledArray([1]))
