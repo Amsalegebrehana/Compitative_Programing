@@ -14,7 +14,8 @@ def doubledArray(changed):
                 Dict[changed[i]] += 1
     if len(changed)%2!=0 or len(changed)==1:
         return []
-
+    print(Dict)
+    # {1: 1, 2: 1}
     for i in range(0,len(changed)):
         # l=[Dict[changed[i]]]
     
@@ -31,4 +32,4 @@ def doubledArray(changed):
                     return []
 
     return l
-print(doubledArray([1]))
+print(doubledArray([1,2]))
