@@ -12,4 +12,12 @@ class Solution:
         return prev
         
         
+# def simpleArraySum(ar):
+# # Write your code here
 
+#     summ = 0
+#     for i in range(0, len(ar)):
+#         summ += ar[i]
+#     print(summ)
+
+# simpleArraySum([1,2,3])
