@@ -1,22 +1,22 @@
-# # 424. Longest Repeating Character Replacement solution
-
-def findMissing(nums):
-		l=[]
-		nums.sort()
-		for i in range(nums[0], nums[len(nums)-1]+1):
-			if i %2 !=0:
-				l.append(i)
-		for i in l:
-			if i not in nums:
-					return i
-print( findMissing([1, 3, 5, 7, 9, 13, 15, 17]))
-print( findMissing([9,3,7]))	
-# from typing import Counter
 
 
-# def findDifference(str):
-#     dictt = Counter(str)
-#     diff = abs(dictt['A'] - dictt['B'])
-#     return diff
-# print(findDifference("AABAAB"))
-  
+# 424. Longest Repeating Character Replacement
+
+def lRepeatingchar(s,k):
+    chardict = {}
+    left = 0
+    maxx = 0
+    right = 0
+    while right < len(s):
+    
+        if s[right] not in chardict:
+            chardict[s[right]] = 1
+        else:
+            chardict[s[right]] += 1
+        maxfreqchar = max(chardict.values())
+        while (right - left + 1) - maxfreqchar > k:
+            chardict[s[left]] -=1
+            left+=1
+        currwindow = right - left + 1
+        maxx = max(maxx, currwindow)
+    return maxx
