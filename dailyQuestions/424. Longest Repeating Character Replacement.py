@@ -19,4 +19,5 @@ def lRepeatingchar(s,k):
             left+=1
         currwindow = right - left + 1
         maxx = max(maxx, currwindow)
+        right += 1
     return maxx
