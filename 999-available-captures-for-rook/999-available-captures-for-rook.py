@@ -18,9 +18,12 @@ class Solution:
             while 8 > nr >= 0 and 8 >nc>= 0 and board[nr][nc] != 'B':
                 if board[nr][nc] != '.':
 
-                    if board[nr][nc] == 'p' :
+                    if board[nr][nc] == 'p' and (nr,nc) not in visited:
                         result += 1
-                        
+                        visited.add((nr - 1,nc))
+                        visited.add((nr,nc-1))
+                        visited.add((nr+1,nc))
+                        visited.add((nr,nc+1))
                     break
                 nr +=r
                 nc +=c
