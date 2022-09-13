@@ -4,16 +4,17 @@ class Solution:
         ans = ""
         for i in s:
             if i == '(':
-                if len(stk) == 0:
-                    stk.append('(')
+                if not stk:
+                    stk.append(i)
                 else:
-                    ans +='('
-                    stk.append('(')
+                    ans +="("
+                    stk.append(i)
             else:
                 if len(stk) == 1:
                     stk.pop()
                 else:
-                    ans+=')'
+                    ans +=")"
                     stk.pop()
         return ans
-        
+                    
+                    
