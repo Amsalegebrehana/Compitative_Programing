@@ -1,20 +1,15 @@
 class Solution:
     def findCenter(self, edges: List[List[int]]) -> int:
-        graph = defaultdict(set)
-
+        graph = defaultdict(int)
         for i,j in edges:
         
-            graph[i].add(j)
-            graph[j].add(i)
+            graph[i]+=1
+            graph[j]+=1
         
-        maxval = 0
-        star = 0
-
+        maxval, star = 0, 0
         for key, val in graph.items():
-            if len(val) > maxval:
-                maxval = len(val)
+            if val > maxval:
+                maxval = val
                 star = key
-
-      
         return star
             
