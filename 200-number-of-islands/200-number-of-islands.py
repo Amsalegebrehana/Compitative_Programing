@@ -7,20 +7,18 @@ class Solution:
             if 0<= r < len(grid) and 0<= c < len(grid[0]):
                 return True
             return False
-        def bfs(r,c):
-            queue = deque([[r,c]])
-            while queue:
-                curr = queue.popleft()
-                for i, j in dir_arr:
-                    nr, nc = curr[0] + i, curr[1] + j
-                    if bound(nr,nc) and grid[nr][nc] == '1':
-                       
-                        grid[nr][nc] = '2'
-                        queue.append([nr,nc])
+        def dfs(r,c):
+            
+            for i, j in dir_arr:
+                nr, nc = r + i, c + j
+                if bound(nr,nc) and grid[nr][nc] == '1':
+
+                    grid[nr][nc] = '2'
+                    dfs(nr,nc)
         for i in range(len(grid)):
             for j in range(len(grid[0])):
                 if grid[i][j] == '1':
-                    bfs(i,j)
+                    dfs(i,j)
                     noIslands +=1
                 
       
