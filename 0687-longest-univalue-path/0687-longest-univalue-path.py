@@ -14,17 +14,15 @@ class Solution:
             
             l = dfs(root.left)
             r = dfs(root.right)
-            curr = 0
+            left, right = 0, 0
             if root.left and root.left.val == root.val:
-                curr += l
-            else:
-                l = 0
+                left = l
+           
             if root.right and root.right.val == root.val:
-                curr += r
-            else:
-                r = 0
-            maxpath = max(maxpath, curr)
-            return max(l, r) + 1
+                right = r
+          
+            maxpath = max(maxpath, left + right)
+            return max(left, right) + 1
         dfs(root)
         return maxpath
                 
