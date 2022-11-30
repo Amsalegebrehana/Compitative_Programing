@@ -7,17 +7,17 @@ class Solution:
             if temp == temp[::-1]:
                 return True
             return False
-        memo = {}
+        @cache
         def recursive(i):
             if i + k > len(s):
                 return 0
-            if i not in memo:
-                count = 0
-                nexts = recursive(i + 1)
-                if checkpalndrome(i, i + k):
-                    count =  max(count, 1 + recursive( i + k))
-                if checkpalndrome(i , i + k + 1):
-                    count = max(count, 1 + recursive(i + k + 1))
-                memo[i] = max(nexts, count)
-            return memo[i]
+            
+            count = 0
+            nexts = recursive(i + 1)
+            if checkpalndrome(i, i + k):
+                count =  max(count, 1 + recursive( i + k))
+            if checkpalndrome(i , i + k + 1):
+                count = max(count, 1 + recursive(i + k + 1))
+                
+            return max(nexts, count)
         return recursive(0)
