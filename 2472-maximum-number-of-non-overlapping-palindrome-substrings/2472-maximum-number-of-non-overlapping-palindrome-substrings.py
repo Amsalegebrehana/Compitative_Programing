@@ -1,13 +1,11 @@
 class Solution:
     def maxPalindromes(self, s: str, k: int) -> int:
         def checkpalndrome(start, end):
-            if end > len(s):
-                return False
+       
             temp = s[start:end]
-            if temp == temp[::-1]:
-                return True
-            return False
-        @cache
+            return  temp == temp[::-1]
+              
+        @lru_cache(None)
         def recursive(i):
             if i + k > len(s):
                 return 0
