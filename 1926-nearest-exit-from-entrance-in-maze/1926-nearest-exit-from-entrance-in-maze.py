@@ -17,8 +17,9 @@ class Solution:
                  
                     if nr == M - 1 or nc == N - 1 or nr == 0 or nc == 0:
                         
-                        dist = min(dist, curr[2] + 1)
+                        # dist = min(dist, curr[2] + 1)
+                        return curr[2] + 1
                     queue.append(((nr,nc, curr[2] + 1)))
                     visited.add((nr,nc))
   
-        return dist if dist != inf else -1
+        return  -1
