@@ -20,7 +20,7 @@ class Solution:
         for i in domaindcount:
             res.append((domaindcount[i],i))
 
-        res.sort()
+       
         for i in res:
             ans.append(str(i[0])+ " " + i[1])
         return ans
