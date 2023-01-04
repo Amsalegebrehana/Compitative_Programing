@@ -2,7 +2,6 @@ class Solution:
     def minimumRounds(self, tasks: List[int]) -> int:
         dictt = Counter(tasks)
         count =0
-        
         for i in tasks:
             if  dictt[i] > 0:
                     
@@ -13,5 +12,4 @@ class Solution:
                    
                 count+=1
         summ = sum(dictt.values())
-    
         return count if summ == 0 else -1
