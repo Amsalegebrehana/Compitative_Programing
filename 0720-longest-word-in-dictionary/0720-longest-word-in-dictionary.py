@@ -1,23 +1,50 @@
+class TrieNode:
+    def __init__(self):
+        self.children = defaultdict(TrieNode)
+        self.end = False
+class Trie:
+    def __init__(self):
+        self.root = TrieNode()
+
+    def insert(self, word: str) -> None:
+        currNode = self.root
+        
+        for w in word:
+            currNode = currNode.children[w]
+            
+        currNode.end = True
+    def validate(self, word):
+        currNode = self.root
+        
+        for ch in word:
+            currNode = currNode.children[ch]
+            if not currNode.end :
+                return False
+            
+        return True
 class Solution:
     def longestWord(self, words: List[str]) -> str:
-
-        currWord = ""
-        words  = set(words)
+        currword = ""
+        trie = Trie()
         for word in words:
-            j = len(word)
-            while j > 0 :
-               
-                if word[:j] not in words:
-                    break
-                j -=1
-            if j == 0 and len(currWord) < len(word):
-                
-                currWord = word
-            elif j == 0 and len(currWord) == len(word):
-                if currWord > word:
-                    currWord = word
+            trie.insert(word)
             
-        return currWord
+        for word in words:
+            if trie.validate(word):
+                
+                if len(currword) < len(word):
+                    currword = word
+                    
+                elif len(currword) == len(word):
+                    if currword > word:
+                         currword = word
+                            
+        return  currword
+                        
+            
+            
+        
+        
         
         
         
