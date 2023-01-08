@@ -2,6 +2,7 @@ class TrieNode:
     def __init__(self):
         self.children = defaultdict(TrieNode)
         self.end = False
+        
 class Trie:
     def __init__(self):
         self.root = TrieNode()
@@ -13,6 +14,7 @@ class Trie:
             currNode = currNode.children[w]
             
         currNode.end = True
+        
     def validate(self, word):
         currNode = self.root
         
@@ -22,6 +24,7 @@ class Trie:
                 return False
             
         return True
+    
 class Solution:
     def longestWord(self, words: List[str]) -> str:
         currword = ""
@@ -32,12 +35,9 @@ class Solution:
         for word in words:
             if trie.validate(word):
                 
-                if len(currword) < len(word):
+                if (len(currword) < len(word)) or \
+                    (len(currword) == len(word) and currword > word):
                     currword = word
-                    
-                elif len(currword) == len(word):
-                    if currword > word:
-                         currword = word
                             
         return  currword
                         
