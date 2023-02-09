@@ -2,7 +2,7 @@ class Solution:
     def numBusesToDestination(self, routes: List[List[int]], source: int, target: int) -> int:
         if source == target:
             return 0
-        graph = collections.defaultdict(set)
+        graph = defaultdict(set)
         
         for i in range(len(routes)):
             for j in routes[i]:
