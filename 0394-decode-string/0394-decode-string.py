@@ -1,22 +1,33 @@
 class Solution:
-    def decodeString(self, encode_string: str) -> str:
-        st = []
+    def decodeString(self, s: str) -> str:
+        
         digits = []
-        digit = ""
-        for i in encode_string:
-            if i.isdigit():
-                digit +=i
-            elif not i.isdigit():
-                if digit:
-                    digits.append(digit)
-                digit = ""
-                if i ==  "]":
-                    temp = ""
-                    while  st[-1] != "[":
-                        temp = st.pop() + temp
-                    st.pop()
-                    if digits:
-                        st.append(temp *int(digits.pop()))
-                else:
-                    st.append(i)
-        return "".join(st)	
+        st = []
+        nums = ""
+        for ch in s:
+            if ch == "[":
+                if nums.isdigit():
+                    digits.append(int(nums))
+                nums = ""
+                st.append(ch)
+            elif ch == "]":
+                temp = ""
+                while st :
+                    elm = st.pop()
+                    if elm != "[":
+                        temp = elm + temp
+                    else:
+                       
+                        st.append(digits.pop() * temp)
+                        temp = ""
+                        break
+            elif ch.isdigit():
+                nums += ch 
+     
+            else:
+                st.append(ch)
+          
+        return "".join(st)
+            
+                
+        
