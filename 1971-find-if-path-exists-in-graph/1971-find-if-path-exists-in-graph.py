@@ -1,20 +1,30 @@
 class Solution:
     def validPath(self, n: int, edges: List[List[int]], source: int, destination: int) -> bool:
-        adj = defaultdict(list)
-        for i, j in edges:
-            adj[i].append(j)
-            adj[j].append(i)
-
-        queue = deque([source])
-        visited = set([source])
-   
-        while queue:
-            curr = queue.popleft()
-            if curr == destination:
-                return True
-            for i in adj[curr]:
-                if i not in visited:
-                    queue.append(i)
-                    visited.add(i)
-        return False
+        rank = [1] * n
+        parent = [i for i in range(n)]
+     
+        
+        def find(x):
+            if parent[x] == x:
+                return x
+            parent[x] = find(parent[x])
+            return parent[x]
+        def union(x,y):
+            px = find(x)
+            py = find(y)
+            
+            if px != py:
+                if rank[px] > rank[py]:
+                    parent[py] = px
+                elif rank[px] < rank[py]:
+                    parent[px] = py
+                else:
+                    parent[py] = px
+                    rank[px] += 1
+                    
+        for x,y in edges:
+            union(x,y)
+            
+        return find(source) == find(destination)
                 
+        
