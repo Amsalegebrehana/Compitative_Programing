@@ -1,24 +1,18 @@
 class Solution:
-    def reverse_by_range(self, l, r, arr):
-
+    def reverse_arr(self, l, r, nums):
         while l < r:
-            arr[l], arr[r] = arr[r], arr[l]
-            l+=1
-            r-=1
-        
+            nums[l], nums[r] = nums[r], nums[l]
+            l +=1
+            r -=1
     def rotate(self, nums: List[int], k: int) -> None:
         """
         Do not return anything, modify nums in-place instead.
         """
-        if len(nums) == 0:
-            return
 
         k = k % len(nums)
-
         nums.reverse()
-      
-        # first half
-        self.reverse_by_range(0,k-1,nums)
-        # second half
-        self.reverse_by_range(k,len(nums) - 1, nums)
-
+        # left half
+        self.reverse_arr(0, k-1, nums)
+        # right half
+        self.reverse_arr(k, len(nums)-1, nums)
+        
